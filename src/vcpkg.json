@@ -1,0 +1,9 @@
+{
+  "name" : "handyvideo",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "d163f9d5f55bac7743abf89c86b7ab3ce26e3175",
+  "dependencies" : [ {
+    "name" : "ffmpeg",
+    "version>=" : "5.1.2#6"
+  } ]
+}
