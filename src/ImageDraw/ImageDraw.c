@@ -15,11 +15,11 @@ int setImage(int imageNumber) {
     return HgImageLoad(str);
 }
 
-void putImage(wid,x,y,gid,scale,a) {
-    if(wid == ) {
-        HgImagePut();
-    }else {
-        HgWImagePut();
-    }
-    HgImagePut(x,y,gid,scale,a);
-}
+//void putImage(wid,x,y,gid,scale,a) {
+//    if(wid == ) {
+//        HgImagePut();
+//    }else {
+//        HgWImagePut();
+//    }
+//    HgImagePut(x,y,gid,scale,a);
+//}
