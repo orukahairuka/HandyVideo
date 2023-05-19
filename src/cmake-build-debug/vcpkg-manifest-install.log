@@ -1,0 +1,11 @@
+Detecting compiler hash for triplet arm64-osx...
+All requested packages are currently installed.
+Restored 0 package(s) from /Users/kawasakiyuichi/.cache/vcpkg/archives in 1.04 us. Use --debug to see more details.
+Total install time: 6.58 us
+To use ffmpeg add the following to your CMake project:
+
+    find_package(FFMPEG REQUIRED)
+    target_include_directories(main PRIVATE ${FFMPEG_INCLUDE_DIRS})
+    target_link_directories(main PRIVATE ${FFMPEG_LIBRARY_DIRS})
+    target_link_libraries(main PRIVATE ${FFMPEG_LIBRARIES})
+
