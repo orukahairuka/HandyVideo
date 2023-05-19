@@ -1,0 +1,98 @@
+Package: vcpkg-tool-meson
+Version: 0.63
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: a43bc1899605471b690a2c79a4066924fe58819a5cb983623556989081e22069
+Description: Meson build system
+Status: install ok installed
+
+Package: pkgconf
+Version: 1.8.0
+Port-Version: 5
+Depends: vcpkg-tool-meson
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: d57482f89d231f79d8eb2cf629c14489ad86474c24c2d1cc995188e1fb6a2b2f
+Description: pkgconf is a program which helps to configure compiler and linker flags for development libraries. It is similar to pkg-config from freedesktop.org.
+Status: install ok installed
+
+Package: vcpkg-pkgconfig-get-modules
+Version: 2022-02-10
+Port-Version: 1
+Depends: pkgconf
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 1787f69cd74cc0c656b19cc556538d7490bf8a17b3b613c7634195743cfd74af
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2022-12-22
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: e970bebab920bd589c828ad5f0d375ead71047ea778a42f5b6ff3e63f0a82e4c
+Status: install ok installed
+
+Package: vcpkg-cmake-get-vars
+Version: 2023-03-02
+Depends: vcpkg-cmake
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: ef5691f5d95c6a8e708f2d21366ec24dca2dc4bf206a2ae38992447cfefe2854
+Status: install ok installed
+
+Package: ffmpeg
+Version: 5.1.2
+Port-Version: 6
+Depends: vcpkg-cmake-get-vars, vcpkg-pkgconfig-get-modules
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 90dafbe5e314d369cb2017bf61a674c35519480ace5a2f843edf06a9cc6d4854
+Description: a library to decode, encode, transcode, mux, demux, stream, filter and play pretty much anything that humans and machines have created.
+    FFmpeg is the leading multimedia framework, able to decode, encode, transcode, mux, demux, stream, filter and play pretty much anything that humans and machines have created. It supports the most obscure ancient formats up to the cutting edge. No matter if they were designed by some standards committee, the community or a corporation. It is also highly portable: FFmpeg compiles, runs, and passes our testing infrastructure FATE across Linux, Mac OS X, Microsoft Windows, the BSDs, Solaris, etc. under a wide variety of build environments, machine architectures, and configurations.
+Default-Features: avcodec, avdevice, avfilter, avformat, swresample, swscale
+Status: install ok installed
+
+Package: ffmpeg
+Feature: avcodec
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Build the avcodec library
+Status: install ok installed
+
+Package: ffmpeg
+Feature: avdevice
+Depends: ffmpeg
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Build the avdevice library
+Status: install ok installed
+
+Package: ffmpeg
+Feature: avfilter
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Build the avfilter library
+Status: install ok installed
+
+Package: ffmpeg
+Feature: avformat
+Depends: ffmpeg
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Build the avformat library
+Status: install ok installed
+
+Package: ffmpeg
+Feature: swresample
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Build the swresample library
+Status: install ok installed
+
+Package: ffmpeg
+Feature: swscale
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Build the swscale library
+Status: install ok installed
+

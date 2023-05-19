@@ -1,0 +1,24 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -DCMAKE_C_COMPILER=/usr/local/bin/hgcc -DCMAKE_TOOLCHAIN_FILE=/Users/kawasakiyuichi/.clion-vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake -G Ninja -S /Users/kawasakiyuichi/Desktop/C/HandyVideo/src -B /Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug
+-- Running vcpkg install
+Detecting compiler hash for triplet arm64-osx...
+All requested packages are currently installed.
+Restored 0 package(s) from /Users/kawasakiyuichi/.cache/vcpkg/archives in 1.04 us. Use --debug to see more details.
+Total install time: 6.58 us
+To use ffmpeg add the following to your CMake project:
+
+    find_package(FFMPEG REQUIRED)
+    target_include_directories(main PRIVATE ${FFMPEG_INCLUDE_DIRS})
+    target_link_directories(main PRIVATE ${FFMPEG_LIBRARY_DIRS})
+    target_link_libraries(main PRIVATE ${FFMPEG_LIBRARIES})
+
+-- Running vcpkg install - done
+-- The C compiler identification is AppleClang 14.0.3.14030022
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/local/bin/hgcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found FFMPEG: optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavdevice.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavdevice.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavfilter.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavfilter.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavformat.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavformat.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavcodec.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavcodec.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libswresample.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libswresample.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libswscale.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libswscale.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavutil.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavutil.a;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/Foundation.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreAudio.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/AVFoundation.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreGraphics.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/OpenGL.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreImage.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/AppKit.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/Security.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/AudioToolbox.framework;-pthread;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libm.tbd;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/VideoToolbox.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreFoundation.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreMedia.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreVideo.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreServices.framework  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug
