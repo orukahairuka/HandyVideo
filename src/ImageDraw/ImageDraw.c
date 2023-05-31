@@ -8,7 +8,7 @@
 
 #include "ImageDraw.h"
 
-int setImage(int imageNumber) {
+int SetImage(int imageNumber) {
     char str[256];
     sprintf(str,"./../output_png/output_%06d.png", imageNumber);
     printf("%s\n", str);
