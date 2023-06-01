@@ -21,7 +21,7 @@ int main() {
     int frameIndex = 0;
 
     // ピクセルデータ格納用の構造体の宣言
-    PixImage pixCtx;
+    PixFrameData pixCtx;
 
     // 動画のパスを受け取る
     videoPath = GetVideoPath();
@@ -30,20 +30,38 @@ int main() {
     system("clear");// ターミナルを綺麗にする
 
     // 受け取ったパス先の動画から連続静止画を出力
+    printf("動画の読み込み中\n");
     VideoToBit(&pixCtx,videoPath,WIDWIDTHSIZE,WIDHEIGTHSIZE);
 
-    HgWOpen(500, 500, WIDWIDTHSIZE, WIDHEIGTHSIZE);
+    system("clear");// ターミナルを綺麗にする
+    printf("完了\n");
 
+    HgOpen(WIDWIDTHSIZE, WIDHEIGTHSIZE);
+    HgSetTitle("HandyVideo");
+
+    printf("%lld\n",pixCtx.numFrames);
     // ビットマップをHandyGraphicで描画する
     while (pixCtx.numFrames >= frameIndex) {
-        for (int y = 0; y < pixCtx.height; y++) {
-            for (int x = 0; x < pixCtx.wight; x++) {
+        printf("%d\n",frameIndex+1);
+        getchar();
+        for (int y = 0; y < WIDHEIGTHSIZE; y++) {
+            for (int x = 0; x < WIDWIDTHSIZE; x++) {
                 // RGBでピクセルデータのセットをする
+                HgSetFillColor(HgRGB(pixCtx.pixel[frameIndex][y][x].r,
+                                 pixCtx.pixel[frameIndex][y][x].g,
+                                 pixCtx.pixel[frameIndex][y][x].b));
                 // 大きさ1 1 の塗りつぶされたボックスを描画する
+                printf("x:%d y:%d\n",x,y);
+                HgBoxFill(x,y,1,1,0);
                 // 描画の位置を少しずつ変える
+                printf("R:%f G:%f B:%f \n",pixCtx.pixel[frameIndex][y][x].r,pixCtx.pixel[frameIndex][y][x].g,pixCtx.pixel[frameIndex][y][x].b);
             }
+            printf("\n");
         }
         frameIndex++;
+        if(frameIndex > 0){
+            break;
+        }
     }
     HgGetChar();
     HgCloseAll();
@@ -52,7 +70,10 @@ int main() {
     free(videoPath);
 
     // pixCtxのメモリを解放する
-    for(int i=0; i < pixCtx.height; i++) {
+    for (int i = 0; i < pixCtx.numFrames; i++) {
+        for (int j = 0; j < WIDHEIGTHSIZE; j++) {
+            free(pixCtx.pixel[i][j]);
+        }
         free(pixCtx.pixel[i]);
     }
     free(pixCtx.pixel);

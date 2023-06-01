@@ -56,48 +56,10 @@ char* GetVideoPath() {
 }
 
 // ffmpegを使用して動画からビットマップを取得する
-void VideoToBit(PixImage *pixCtx,char* videoPath,int width,int height) {
+void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
 
     // スケーリングコンテキストの確保
     struct SwsContext *swsCtx  = NULL;
-
-    // 入力フレームと出力フレームの確保
-    AVFrame *inFrame = NULL;
-    AVFrame *outFrame = NULL;
-
-    // 入力フレームと出力フレームのフォーマットとサイズの設定
-    int inWidth = 352; // 入力フレームの幅
-    int inHeight = 288; // 入力フレームの高さ
-    enum AVPixelFormat inPixFmt = AV_PIX_FMT_YUV420P; // 入力フレームのピクセルフォーマット
-
-    int outWidth = width; // 出力フレームの幅
-    int outHeight = height; // 出力フレームの高さ
-    enum AVPixelFormat outPixFmt = AV_PIX_FMT_RGB24; // 出力フレームのピクセルフォーマット
-
-    int64_t numFrames; // データ格納用構造体のフレーム数
-
-    // スケーリングコンテキストの初期化
-    swsCtx = sws_getContext(inWidth,inHeight,inPixFmt,
-                            outWidth,outHeight,outPixFmt,
-                            SWS_BILINEAR,NULL,NULL,NULL);
-
-    // 入力フレームの確保と初期化
-    inFrame = av_frame_alloc();
-    inFrame->width = inWidth;
-    inFrame->height = inHeight;
-    inFrame->format = inPixFmt;
-    av_image_alloc(inFrame->data, inFrame->linesize,
-                   inFrame->width, inFrame->height,
-                   inFrame->format, 32);
-
-    // 出力フレームの確保と初期化
-    outFrame = av_frame_alloc();
-    outFrame->width = outWidth;
-    outFrame->height = outHeight;
-    outFrame->format = outPixFmt;
-    av_image_alloc(outFrame->data, outFrame->linesize,
-                   outFrame->width, outFrame->height,
-                   outFrame->format, 32);
 
     // フレームの読み込みループ
     AVFormatContext *fmtCtx = NULL;
@@ -149,21 +111,55 @@ void VideoToBit(PixImage *pixCtx,char* videoPath,int width,int height) {
     // パケットとフレームの確保
     pkt.data = NULL;
     pkt.size = 0;
+    // 入力フレームと出力フレームの確保
+    AVFrame *inFrame = NULL;
+    AVFrame *outFrame = NULL;
+
+    // 入力フレームと出力フレームのフォーマットとサイズの設定
+    int inWidth = fmtCtx->streams[videoStreamIndex]->codecpar->width; // 入力フレームの幅
+    int inHeight = fmtCtx->streams[videoStreamIndex]->codecpar->height; // 入力フレームの高さ
+    enum AVPixelFormat inPixFmt = AV_PIX_FMT_YUV420P; // 入力フレームのピクセルフォーマット
+
+    int outWidth = width; // 出力フレームの幅
+    int outHeight = height; // 出力フレームの高さ
+    enum AVPixelFormat outPixFmt = AV_PIX_FMT_RGB24; // 出力フレームのピクセルフォーマット
+
+    int64_t numFrames; // データ格納用構造体のフレーム数
+
+    // スケーリングコンテキストの初期化
+    swsCtx = sws_getContext(inWidth,inHeight,inPixFmt,
+                            outWidth,outHeight,outPixFmt,
+                            SWS_BILINEAR,NULL,NULL,NULL);
+
+    // 入力フレームの確保と初期化
+    inFrame = av_frame_alloc();
+    inFrame->width = inWidth;
+    inFrame->height = inHeight;
+    inFrame->format = inPixFmt;
+    av_image_alloc(inFrame->data, inFrame->linesize,
+                   inFrame->width, inFrame->height,
+                   inFrame->format, 32);
+
+    // 出力フレームの確保と初期化
+    outFrame = av_frame_alloc();
+    outFrame->width = outWidth;
+    outFrame->height = outHeight;
+    outFrame->format = outPixFmt;
+    av_image_alloc(outFrame->data, outFrame->linesize,
+                   outFrame->width, outFrame->height,
+                   outFrame->format, 32);
 
     // データ格納用の構造体の初期化
     numFrames = fmtCtx->streams[videoStreamIndex]->duration;
-    (*pixCtx).wight = outWidth;
-    (*pixCtx).height = outHeight;
     (*pixCtx).numFrames = numFrames;
 
     // pixCtxのメモリを動的に確保する
     (*pixCtx).pixel = (RGB***) malloc((*pixCtx).numFrames * sizeof(RGB**));
     for(int i = 0; i < (*pixCtx).numFrames; i++) {
-        (*pixCtx).pixel[i] = (RGB**) malloc((*pixCtx).height * sizeof(RGB*));
-        for(int j = 0; j < (*pixCtx).height; j++) {
-            (*pixCtx).pixel[i][j] = (RGB*) malloc((*pixCtx).wight * sizeof(RGB));
+        (*pixCtx).pixel[i] = (RGB**) malloc(outHeight * sizeof(RGB*));
+        for(int j = 0; j < outHeight; j++) {
+            (*pixCtx).pixel[i][j] = (RGB*) malloc(outWidth * sizeof(RGB));
         }
-
     }
     int frameIndex = 0;
 
@@ -214,9 +210,9 @@ void VideoToBit(PixImage *pixCtx,char* videoPath,int width,int height) {
                         uint8_t b = rgbData[y * rgbLinesize + x * 3 + 2]; //  (x,y)座標の青成分
 
                         // 操作して得られたピクセルデータを構造体に格納する
-                        (*pixCtx).pixel[frameIndex][y][x].r = r;
-                        (*pixCtx).pixel[frameIndex][y][x].g = g;
-                        (*pixCtx).pixel[frameIndex][y][x].b = b;
+                        (*pixCtx).pixel[frameIndex][y][x].r = (float)r/255;
+                        (*pixCtx).pixel[frameIndex][y][x].g = (float)g/255;
+                        (*pixCtx).pixel[frameIndex][y][x].b = (float)b/255;
                     }
                 }
 
