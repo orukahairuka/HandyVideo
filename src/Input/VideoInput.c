@@ -1,6 +1,6 @@
 /*
  * 動画ファイルの受け取り関係の処理をする
- * 2023/05/10 Kawa_09
+ * 2023/06/14 Kawa_09
  */
 
 #include <stdio.h>
@@ -15,7 +15,6 @@
 #include "VideoInput.h"
 
 #define FILE_PATH_BUF 256
-#define INBUF_SIZE 4096
 
 // 動画のパスをターミナルから受け取る（仮）
 char* GetVideoPath() {
@@ -55,7 +54,7 @@ char* GetVideoPath() {
     return videoPath;
 }
 
-// ffmpegを使用して動画からビットマップを取得する
+// ffmpegを使用して動画からRGBピクセルデータを取得する
 void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
 
     // スケーリングコンテキストの確保
@@ -83,7 +82,7 @@ void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
 
     // デコーダーの探索
     AVCodec *dec = NULL;
-    int videoStreamIndex = -1;
+    int videoStreamIndex;
     videoStreamIndex = av_find_best_stream(fmtCtx, AVMEDIA_TYPE_VIDEO,
                                            -1,-1,&dec,0);
     if(videoStreamIndex < 0){
@@ -151,14 +150,14 @@ void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
 
     // データ格納用の構造体の初期化
     numFrames = fmtCtx->streams[videoStreamIndex]->duration;
-    (*pixCtx).numFrames = numFrames;
+    pixCtx->numFrames = numFrames;
 
-    // pixCtxのメモリを動的に確保する
-    (*pixCtx).pixel = (RGB***) malloc((*pixCtx).numFrames * sizeof(RGB**));
+    // pixCtxのメモリを確保する
+    (*pixCtx).pix = (RGB***) malloc((*pixCtx).numFrames * sizeof(RGB**));
     for(int i = 0; i < (*pixCtx).numFrames; i++) {
-        (*pixCtx).pixel[i] = (RGB**) malloc(outHeight * sizeof(RGB*));
+        (*pixCtx).pix[i] = (RGB**) malloc(outHeight * sizeof(RGB*));
         for(int j = 0; j < outHeight; j++) {
-            (*pixCtx).pixel[i][j] = (RGB*) malloc(outWidth * sizeof(RGB));
+            (*pixCtx).pix[i][j] = (RGB*) malloc(outWidth * sizeof(RGB));
         }
     }
     int frameIndex = 0;
@@ -210,18 +209,18 @@ void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
                         uint8_t b = rgbData[y * rgbLinesize + x * 3 + 2]; //  (x,y)座標の青成分
 
                         // 操作して得られたピクセルデータを構造体に格納する
-                        (*pixCtx).pixel[frameIndex][y][x].r = (float)r/255;
-                        (*pixCtx).pixel[frameIndex][y][x].g = (float)g/255;
-                        (*pixCtx).pixel[frameIndex][y][x].b = (float)b/255;
+                        pixCtx->pix[frameIndex][y][x].r = (float)r/255;
+                        pixCtx->pix[frameIndex][y][x].g = (float)g/255;
+                        pixCtx->pix[frameIndex][y][x].b = (float)b/255;
                     }
                 }
 
                 frameIndex++;
             }
 
-            // パケットを解放する
-            av_packet_unref(&pkt);
         }
+        // パケットを解放する
+        av_packet_unref(&pkt);
 
     }
     // リソースを解放する
@@ -232,4 +231,41 @@ void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
     av_frame_free(&inFrame);
     av_frame_free(&outFrame);
     sws_freeContext(swsCtx);
-}
+}// end of VideoToBit()
+
+// RGBピクセルデータの並び替えを行う
+void ChangePixFrame(PixFrameData *pixCtx,int width,int height){
+    int frameIndex = 0;
+    int hgSizeHeight = 2*height;
+    RGB *tmp = NULL;
+
+    // tmpのメモリを確保する
+    tmp = (RGB*) malloc(sizeof(RGB));
+
+    // 上下を入れ替える
+    while(frameIndex < pixCtx->numFrames){
+        for(int y = 0; y < height; y++){
+            for(int x = 0; x < width; x++){
+                (*tmp).r = pixCtx->pix[frameIndex][y][x].r;
+                (*tmp).g = pixCtx->pix[frameIndex][y][x].g;
+                (*tmp).b = pixCtx->pix[frameIndex][y][x].b;
+                pixCtx->pix[frameIndex][y][x].r = pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].r;
+                pixCtx->pix[frameIndex][y][x].g = pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].g;
+                pixCtx->pix[frameIndex][y][x].b = pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].b;
+                pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].r = (*tmp).r;
+                pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].g = (*tmp).g;
+                pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].b = (*tmp).b;
+            }
+        }
+        if(frameIndex % 100 == 0)printf("%d\n", frameIndex);
+        frameIndex++;
+    }
+
+    // tmpのメモリを解放する
+    free(tmp);
+}// end of ChangePixFrame()
+
+// RGBピクセルデータをフレームごとに一次元配列を持つ構造体に代入する
+void PushPixDraw(){
+
+}// end of PushPixDraw()

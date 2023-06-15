@@ -7,7 +7,7 @@ typedef struct {
 
 // フレームごとの２次元のRGBピクセルデータの格納用
 typedef struct {
-    RGB ***pixel;        // ピクセルデータのポインタ
+    RGB ***pix;        // ピクセルデータのポインタ
     int64_t numFrames;   // フレーム数
 }PixFrameData;
 
@@ -15,9 +15,11 @@ typedef struct {
 typedef struct {
     double x;           // ピクセルのx座標
     double y;           // ピクセルのy座標
-    RGB pixColor;       // ピクセルの色
+    RGB **pixColor;       // ピクセルの色
 }PixDraw;
 
 char* GetVideoPath();
 
 void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height);
+
+void ChangePixFrame(PixFrameData *pixCtx,int width,int height);
