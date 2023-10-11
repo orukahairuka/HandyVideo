@@ -1,6 +1,6 @@
 /*
  * 動画ファイルの受け取り関係の処理をする
- * 2023/06/14 Kawa_09
+ * 2023/06/14 Kawa09
  */
 
 #include <stdio.h>
@@ -232,38 +232,6 @@ void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
     av_frame_free(&outFrame);
     sws_freeContext(swsCtx);
 }// end of VideoToBit()
-
-// RGBピクセルデータの並び替えを行う
-void ChangePixFrame(PixFrameData *pixCtx,int width,int height){
-    int frameIndex = 0;
-    int hgSizeHeight = 2*height;
-    RGB *tmp = NULL;
-
-    // tmpのメモリを確保する
-    tmp = (RGB*) malloc(sizeof(RGB));
-
-    // 上下を入れ替える
-    while(frameIndex < pixCtx->numFrames){
-        for(int y = 0; y < height; y++){
-            for(int x = 0; x < width; x++){
-                (*tmp).r = pixCtx->pix[frameIndex][y][x].r;
-                (*tmp).g = pixCtx->pix[frameIndex][y][x].g;
-                (*tmp).b = pixCtx->pix[frameIndex][y][x].b;
-                pixCtx->pix[frameIndex][y][x].r = pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].r;
-                pixCtx->pix[frameIndex][y][x].g = pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].g;
-                pixCtx->pix[frameIndex][y][x].b = pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].b;
-                pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].r = (*tmp).r;
-                pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].g = (*tmp).g;
-                pixCtx->pix[frameIndex][hgSizeHeight - y - 1][x].b = (*tmp).b;
-            }
-        }
-        if(frameIndex % 100 == 0)printf("%d\n", frameIndex);
-        frameIndex++;
-    }
-
-    // tmpのメモリを解放する
-    free(tmp);
-}// end of ChangePixFrame()
 
 // RGBピクセルデータをフレームごとに一次元配列を持つ構造体に代入する
 void PushPixDraw(){
