@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/ffmpeg-arm64-osx-5.1.2#6-9f9b9b5b-d6f1-47ec-89fd-2728d644b8aa",
-  "name": "ffmpeg:arm64-osx@5.1.2#6 90dafbe5e314d369cb2017bf61a674c35519480ace5a2f843edf06a9cc6d4854",
+  "documentNamespace": "https://spdx.org/spdxdocs/ffmpeg-arm64-osx-5.1.2#6-3da2a4b2-66a2-437d-9f28-785f98a85ab9",
+  "name": "ffmpeg:arm64-osx@5.1.2#6 02d1b595bf211ee8373ab01148748786fea17e276351777645f6ac1795b834ee",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-bedcba5172f5e4b91caac660ab7afe92c27a9895"
     ],
-    "created": "2023-05-11T08:16:53Z"
+    "created": "2023-06-04T15:27:23Z"
   },
   "relationships": [
     {
@@ -243,7 +243,7 @@
       "name": "ffmpeg",
       "SPDXID": "SPDXRef-port",
       "versionInfo": "5.1.2#6",
-      "downloadLocation": "git+https://github.com/Microsoft/vcpkg#ports/ffmpeg",
+      "downloadLocation": "git+https://github.com/Microsoft/vcpkg@a7e0c378cd0a6564b28c28d6d970e3d633b4382e",
       "homepage": "https://ffmpeg.org",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "NOASSERTION",
@@ -254,7 +254,7 @@
     {
       "name": "ffmpeg:arm64-osx",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "90dafbe5e314d369cb2017bf61a674c35519480ace5a2f843edf06a9cc6d4854",
+      "versionInfo": "02d1b595bf211ee8373ab01148748786fea17e276351777645f6ac1795b834ee",
       "downloadLocation": "NONE",
       "licenseConcluded": "NOASSERTION",
       "licenseDeclared": "NOASSERTION",

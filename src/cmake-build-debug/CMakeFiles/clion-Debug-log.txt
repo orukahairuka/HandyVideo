@@ -1,9 +1,146 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -DCMAKE_C_COMPILER=/usr/local/bin/hgcc -DCMAKE_TOOLCHAIN_FILE=/Users/kawasakiyuichi/.clion-vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake -G Ninja -S /Users/kawasakiyuichi/Desktop/C/HandyVideo/src -B /Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug
 -- Running vcpkg install
 Detecting compiler hash for triplet arm64-osx...
-All requested packages are currently installed.
-Restored 0 package(s) from /Users/kawasakiyuichi/.cache/vcpkg/archives in 1.04 us. Use --debug to see more details.
-Total install time: 6.58 us
+The following packages will be rebuilt:
+    ffmpeg[avcodec,avdevice,avfilter,avformat,core,swresample,swscale]:arm64-osx -> 5.1.2#6 -- /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/ffmpeg/a7e0c378cd0a6564b28c28d6d970e3d633b4382e
+  * pkgconf[core]:arm64-osx -> 1.8.0#5 -- /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/pkgconf/8848e56b32837456dfb872f6ca3cc9953558d453
+  * vcpkg-cmake[core]:arm64-osx -> 2022-12-22 -- /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/vcpkg-cmake/1913f86defd2140d0a6751be2d51952e4090efa4
+  * vcpkg-cmake-get-vars[core]:arm64-osx -> 2023-03-02 -- /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/vcpkg-cmake-get-vars/2e624c2cf12a97a7a802e31ff1d28b9fa6ba9bde
+  * vcpkg-pkgconfig-get-modules[core]:arm64-osx -> 2022-02-10#1 -- /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/vcpkg-pkgconfig-get-modules/48bfa748f78837921860329547ed6e5799665698
+  * vcpkg-tool-meson[core]:arm64-osx -> 0.63 -- /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/vcpkg-tool-meson/bee0cb6c5edf45133ebc9643b86c9c775ab36cfe
+Additional packages (*) will be modified to complete this operation.
+Removing 1/12 ffmpeg:arm64-osx
+Elapsed time to handle ffmpeg:arm64-osx: 32.9 ms
+Removing 2/12 vcpkg-cmake-get-vars:arm64-osx
+Elapsed time to handle vcpkg-cmake-get-vars:arm64-osx: 2.07 ms
+Removing 3/12 vcpkg-cmake:arm64-osx
+Elapsed time to handle vcpkg-cmake:arm64-osx: 2.05 ms
+Removing 4/12 vcpkg-pkgconfig-get-modules:arm64-osx
+Elapsed time to handle vcpkg-pkgconfig-get-modules:arm64-osx: 1.89 ms
+Removing 5/12 pkgconf:arm64-osx
+Elapsed time to handle pkgconf:arm64-osx: 4.72 ms
+Removing 6/12 vcpkg-tool-meson:arm64-osx
+Elapsed time to handle vcpkg-tool-meson:arm64-osx: 122 ms
+Restored 0 package(s) from /Users/kawasakiyuichi/.cache/vcpkg/archives in 32.2 us. Use --debug to see more details.
+Installing 7/12 vcpkg-tool-meson:arm64-osx...
+Building vcpkg-tool-meson[core]:arm64-osx...
+warning: -- Using community triplet arm64-osx. This triplet configuration is not guaranteed to succeed.
+-- [COMMUNITY] Loading triplet configuration from: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/triplets/community/arm64-osx.cmake
+-- Installing port from location: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/vcpkg-tool-meson/bee0cb6c5edf45133ebc9643b86c9c775ab36cfe
+-- Using cached meson-bb91cea0d66d8d036063dedec1f194d663399cdf.tar.gz.
+-- Applying patch meson-intl.patch
+-- Using meson: /Users/kawasakiyuichi/.pyenv/shims/python3;/Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-tool-meson_arm64-osx/tools/meson/meson.py
+-- Performing post-build validation
+Stored binaries in 1 destinations.
+Elapsed time to handle vcpkg-tool-meson:arm64-osx: 1.4 s
+Installing 8/12 pkgconf:arm64-osx...
+Building pkgconf[core]:arm64-osx...
+warning: -- Using community triplet arm64-osx. This triplet configuration is not guaranteed to succeed.
+-- [COMMUNITY] Loading triplet configuration from: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/triplets/community/arm64-osx.cmake
+-- Installing port from location: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/pkgconf/8848e56b32837456dfb872f6ca3cc9953558d453
+-- Using cached pkgconf-pkgconf-cef30268e1a3f79efd607c26abcf556aa314c9c4.tar.gz.
+-- Cleaning sources at /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/pkgconf/src/6aa314c9c4-8bd74a463d.clean. Use --editable to skip cleaning for the packages you specify.
+-- Extracting source /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/downloads/pkgconf-pkgconf-cef30268e1a3f79efd607c26abcf556aa314c9c4.tar.gz
+-- Using source at /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/pkgconf/src/6aa314c9c4-8bd74a463d.clean
+-- Getting CMake variables for arm64-osx-dbg
+-- Getting CMake variables for arm64-osx-rel
+-- Configuring arm64-osx-dbg
+-- Configuring arm64-osx-dbg done
+-- Configuring arm64-osx-rel
+-- Configuring arm64-osx-rel done
+-- Package arm64-osx-dbg
+-- Package arm64-osx-rel
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/pkgconf_arm64-osx/lib/pkgconfig/libpkgconf.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/pkgconf_arm64-osx/debug/lib/pkgconfig/libpkgconf.pc
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/pkgconf_arm64-osx/share/pkgconf/copyright
+-- Performing post-build validation
+Stored binaries in 1 destinations.
+Elapsed time to handle pkgconf:arm64-osx: 6.1 s
+Installing 9/12 vcpkg-pkgconfig-get-modules:arm64-osx...
+Building vcpkg-pkgconfig-get-modules[core]:arm64-osx...
+warning: -- Using community triplet arm64-osx. This triplet configuration is not guaranteed to succeed.
+-- [COMMUNITY] Loading triplet configuration from: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/triplets/community/arm64-osx.cmake
+-- Installing port from location: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/vcpkg-pkgconfig-get-modules/48bfa748f78837921860329547ed6e5799665698
+-- Performing post-build validation
+Stored binaries in 1 destinations.
+Elapsed time to handle vcpkg-pkgconfig-get-modules:arm64-osx: 30.5 ms
+Installing 10/12 vcpkg-cmake:arm64-osx...
+Building vcpkg-cmake[core]:arm64-osx...
+warning: -- Using community triplet arm64-osx. This triplet configuration is not guaranteed to succeed.
+-- [COMMUNITY] Loading triplet configuration from: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/triplets/community/arm64-osx.cmake
+-- Installing port from location: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/vcpkg-cmake/1913f86defd2140d0a6751be2d51952e4090efa4
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake_arm64-osx/share/vcpkg-cmake/vcpkg_cmake_configure.cmake
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake_arm64-osx/share/vcpkg-cmake/vcpkg_cmake_build.cmake
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake_arm64-osx/share/vcpkg-cmake/vcpkg_cmake_install.cmake
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake_arm64-osx/share/vcpkg-cmake/vcpkg-port-config.cmake
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake_arm64-osx/share/vcpkg-cmake/copyright
+-- Performing post-build validation
+Stored binaries in 1 destinations.
+Elapsed time to handle vcpkg-cmake:arm64-osx: 36.9 ms
+Installing 11/12 vcpkg-cmake-get-vars:arm64-osx...
+Building vcpkg-cmake-get-vars[core]:arm64-osx...
+warning: -- Using community triplet arm64-osx. This triplet configuration is not guaranteed to succeed.
+-- [COMMUNITY] Loading triplet configuration from: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/triplets/community/arm64-osx.cmake
+-- Installing port from location: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/vcpkg-cmake-get-vars/2e624c2cf12a97a7a802e31ff1d28b9fa6ba9bde
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake-get-vars_arm64-osx/share/vcpkg-cmake-get-vars/vcpkg_cmake_get_vars.cmake
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake-get-vars_arm64-osx/share/vcpkg-cmake-get-vars/cmake_get_vars
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake-get-vars_arm64-osx/share/vcpkg-cmake-get-vars/cmake_get_vars/CMakeLists.txt
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake-get-vars_arm64-osx/share/vcpkg-cmake-get-vars/vcpkg-port-config.cmake
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/vcpkg-cmake-get-vars_arm64-osx/share/vcpkg-cmake-get-vars/copyright
+-- Performing post-build validation
+Stored binaries in 1 destinations.
+Elapsed time to handle vcpkg-cmake-get-vars:arm64-osx: 25.6 ms
+Installing 12/12 ffmpeg:arm64-osx...
+Building ffmpeg[avcodec,avdevice,avfilter,avformat,core,swresample,swscale]:arm64-osx...
+warning: -- Using community triplet arm64-osx. This triplet configuration is not guaranteed to succeed.
+-- [COMMUNITY] Loading triplet configuration from: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/triplets/community/arm64-osx.cmake
+-- Installing port from location: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/versioning_/versions/ffmpeg/a7e0c378cd0a6564b28c28d6d970e3d633b4382e
+-- Using cached ffmpeg-ffmpeg-n5.1.2.tar.gz.
+-- Cleaning sources at /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/ffmpeg/src/n5.1.2-f31542651f.clean. Use --editable to skip cleaning for the packages you specify.
+-- Extracting source /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/downloads/ffmpeg-ffmpeg-n5.1.2.tar.gz
+-- Applying patch 0001-create-lib-libraries.patch
+-- Applying patch 0002-fix-msvc-link.patch
+-- Applying patch 0003-fix-windowsinclude.patch
+-- Applying patch 0004-fix-debug-build.patch
+-- Applying patch 0005-fix-nasm.patch
+-- Applying patch 0006-fix-StaticFeatures.patch
+-- Applying patch 0007-fix-lib-naming.patch
+-- Applying patch 0009-Fix-fdk-detection.patch
+-- Applying patch 0011-Fix-x265-detection.patch
+-- Applying patch 0012-Fix-ssl-110-detection.patch
+-- Applying patch 0013-define-WINVER.patch
+-- Applying patch 0015-Fix-xml2-detection.patch
+-- Applying patch 0020-fix-aarch64-libswscale.patch
+-- Applying patch 0022-fix-iconv.patch
+-- Using source at /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/buildtrees/ffmpeg/src/n5.1.2-f31542651f.clean
+-- Getting CMake variables for arm64-osx
+-- Building Options: --enable-pic --disable-doc --enable-debug --enable-runtime-cpudetect --disable-autodetect --target-os=darwin --enable-appkit --enable-avfoundation --enable-coreimage --enable-audiotoolbox --enable-videotoolbox --cc=cc --cxx=c++ --nm=nm --ar='ar' --disable-ffmpeg --disable-ffplay --disable-ffprobe --enable-avcodec --enable-avdevice --enable-avformat --enable-avfilter --disable-postproc --enable-swresample --enable-swscale --disable-alsa --disable-amf --disable-libaom --disable-libass --disable-avisynth --disable-bzlib --disable-libdav1d --disable-libfdk-aac --disable-libfontconfig --disable-libfreetype --disable-libfribidi --disable-iconv --disable-libilbc --disable-lzma --disable-libmp3lame --disable-libmodplug --disable-cuda --disable-nvenc --disable-nvdec  --disable-cuvid --disable-ffnvcodec --disable-opencl --disable-opengl --disable-libopenh264 --disable-libopenjpeg --disable-libopenmpt --disable-openssl --enable-securetransport --disable-libopus --disable-sdl2 --disable-libsnappy --disable-libsoxr --disable-libspeex --disable-libssh --disable-libtensorflow --disable-libtesseract --disable-libtheora --disable-libvorbis --disable-libvpx --disable-libwebp --disable-libx264 --disable-libx265 --disable-libxml2 --disable-zlib --disable-libsrt --disable-libmfx --enable-cross-compile --pkg-config-flags=--static
+-- Building Release Options: --enable-optimizations
+-- Building ffmpeg for Release
+-- Building Debug Options: --debug --disable-optimizations
+-- Building ffmpeg for Debug
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/lib/pkgconfig/libavcodec.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/lib/pkgconfig/libavdevice.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/lib/pkgconfig/libavfilter.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/lib/pkgconfig/libavformat.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/lib/pkgconfig/libavutil.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/lib/pkgconfig/libswresample.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/lib/pkgconfig/libswscale.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/debug/lib/pkgconfig/libavcodec.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/debug/lib/pkgconfig/libavdevice.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/debug/lib/pkgconfig/libavfilter.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/debug/lib/pkgconfig/libavformat.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/debug/lib/pkgconfig/libavutil.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/debug/lib/pkgconfig/libswresample.pc
+-- Fixing pkgconfig file: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/debug/lib/pkgconfig/libswscale.pc
+-- Dependencies (release): Foundation;CoreAudio;AVFoundation;CoreGraphics;OpenGL;CoreImage;AppKit;Security;AudioToolbox;-pthread;m;VideoToolbox;CoreFoundation;CoreMedia;CoreVideo;CoreServices
+-- Dependencies (debug):   Foundation;CoreAudio;AVFoundation;CoreGraphics;OpenGL;CoreImage;AppKit;Security;AudioToolbox;-pthread;m;VideoToolbox;CoreFoundation;CoreMedia;CoreVideo;CoreServices
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/share/ffmpeg/usage
+-- Installing: /Users/kawasakiyuichi/.clion-vcpkg/vcpkg/packages/ffmpeg_arm64-osx/share/ffmpeg/copyright
+-- Performing post-build validation
+Stored binaries in 1 destinations.
+Elapsed time to handle ffmpeg:arm64-osx: 18 min
+Total install time: 18 min
 To use ffmpeg add the following to your CMake project:
 
     find_package(FFMPEG REQUIRED)
@@ -12,13 +149,6 @@ To use ffmpeg add the following to your CMake project:
     target_link_libraries(main PRIVATE ${FFMPEG_LIBRARIES})
 
 -- Running vcpkg install - done
--- The C compiler identification is AppleClang 14.0.3.14030022
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/local/bin/hgcc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Found FFMPEG: optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavdevice.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavdevice.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavfilter.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavfilter.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavformat.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavformat.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavcodec.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavcodec.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libswresample.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libswresample.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libswscale.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libswscale.a;optimized;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/lib/libavutil.a;debug;/Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug/vcpkg_installed/arm64-osx/debug/lib/libavutil.a;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/Foundation.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreAudio.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/AVFoundation.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreGraphics.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/OpenGL.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreImage.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/AppKit.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/Security.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/AudioToolbox.framework;-pthread;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/lib/libm.tbd;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/VideoToolbox.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreFoundation.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreMedia.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreVideo.framework;/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/CoreServices.framework  
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/kawasakiyuichi/Desktop/C/HandyVideo/src/cmake-build-debug

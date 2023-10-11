@@ -1,14 +1,14 @@
 /*
- * 連続静止画を読み込む・出力する
- * 2023/05/11 Kawa_09
+ * ピクセルデータを描画する
+ * 2023/06/14 Kawa_09
  */
 
 #include <stdio.h>
 #include <handy.h>
 
-#include "ImageDraw.h"
+#include "PixFrameDraw.h"
 
-int setImage(int imageNumber) {
+int SetImage(int imageNumber) {
     char str[256];
     sprintf(str,"./../output_png/output_%06d.png", imageNumber);
     printf("%s\n", str);

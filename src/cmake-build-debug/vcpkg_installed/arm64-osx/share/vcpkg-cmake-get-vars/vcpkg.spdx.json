@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/vcpkg-cmake-get-vars-arm64-osx-2023-03-02-861ffe5e-2058-461a-9551-b0cffec987b2",
-  "name": "vcpkg-cmake-get-vars:arm64-osx@2023-03-02 ef5691f5d95c6a8e708f2d21366ec24dca2dc4bf206a2ae38992447cfefe2854",
+  "documentNamespace": "https://spdx.org/spdxdocs/vcpkg-cmake-get-vars-arm64-osx-2023-03-02-20e6e53b-d33c-4f0a-a39c-79035850ddc5",
+  "name": "vcpkg-cmake-get-vars:arm64-osx@2023-03-02 302e22414c70912c332a110f052e0084bf76e6b8406c83fbeda74993eef6bbc3",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-bedcba5172f5e4b91caac660ab7afe92c27a9895"
     ],
-    "created": "2023-05-11T07:59:25Z"
+    "created": "2023-06-04T15:09:56Z"
   },
   "relationships": [
     {
@@ -83,7 +83,7 @@
       "name": "vcpkg-cmake-get-vars",
       "SPDXID": "SPDXRef-port",
       "versionInfo": "2023-03-02",
-      "downloadLocation": "git+https://github.com/Microsoft/vcpkg#ports/vcpkg-cmake-get-vars",
+      "downloadLocation": "git+https://github.com/Microsoft/vcpkg@2e624c2cf12a97a7a802e31ff1d28b9fa6ba9bde",
       "licenseConcluded": "MIT",
       "licenseDeclared": "NOASSERTION",
       "copyrightText": "NOASSERTION",
@@ -92,7 +92,7 @@
     {
       "name": "vcpkg-cmake-get-vars:arm64-osx",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "ef5691f5d95c6a8e708f2d21366ec24dca2dc4bf206a2ae38992447cfefe2854",
+      "versionInfo": "302e22414c70912c332a110f052e0084bf76e6b8406c83fbeda74993eef6bbc3",
       "downloadLocation": "NONE",
       "licenseConcluded": "MIT",
       "licenseDeclared": "NOASSERTION",

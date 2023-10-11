@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/vcpkg-pkgconfig-get-modules-arm64-osx-2022-02-10#1-1209ad65-7491-4af8-a822-82827ccfcb40",
-  "name": "vcpkg-pkgconfig-get-modules:arm64-osx@2022-02-10#1 1787f69cd74cc0c656b19cc556538d7490bf8a17b3b613c7634195743cfd74af",
+  "documentNamespace": "https://spdx.org/spdxdocs/vcpkg-pkgconfig-get-modules-arm64-osx-2022-02-10#1-3652a2a6-186d-4355-b7ef-822680105ab1",
+  "name": "vcpkg-pkgconfig-get-modules:arm64-osx@2022-02-10#1 86339d72cf4aaf74d479c470ce030bc83456722fbc79c894d8f8e34324fa87fc",
   "creationInfo": {
     "creators": [
       "Tool: vcpkg-bedcba5172f5e4b91caac660ab7afe92c27a9895"
     ],
-    "created": "2023-05-11T07:59:48Z"
+    "created": "2023-06-04T15:09:56Z"
   },
   "relationships": [
     {
@@ -83,7 +83,7 @@
       "name": "vcpkg-pkgconfig-get-modules",
       "SPDXID": "SPDXRef-port",
       "versionInfo": "2022-02-10#1",
-      "downloadLocation": "git+https://github.com/Microsoft/vcpkg#ports/vcpkg-pkgconfig-get-modules",
+      "downloadLocation": "git+https://github.com/Microsoft/vcpkg@48bfa748f78837921860329547ed6e5799665698",
       "licenseConcluded": "MIT",
       "licenseDeclared": "NOASSERTION",
       "copyrightText": "NOASSERTION",
@@ -92,7 +92,7 @@
     {
       "name": "vcpkg-pkgconfig-get-modules:arm64-osx",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "1787f69cd74cc0c656b19cc556538d7490bf8a17b3b613c7634195743cfd74af",
+      "versionInfo": "86339d72cf4aaf74d479c470ce030bc83456722fbc79c894d8f8e34324fa87fc",
       "downloadLocation": "NONE",
       "licenseConcluded": "MIT",
       "licenseDeclared": "NOASSERTION",
