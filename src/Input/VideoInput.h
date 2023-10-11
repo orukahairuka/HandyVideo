@@ -21,5 +21,3 @@ typedef struct {
 char* GetVideoPath();
 
 void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height);
-
-void ChangePixFrame(PixFrameData *pixCtx,int width,int height);
