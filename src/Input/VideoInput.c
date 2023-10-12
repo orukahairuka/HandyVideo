@@ -1,6 +1,6 @@
 /*
  * 動画ファイルの受け取り関係の処理をする
- * 2023/06/14 Kawa09
+ * 2023/10/11 Kawa0x5F
  */
 
 #include <stdio.h>
@@ -21,11 +21,9 @@ char* GetVideoPath() {
     char* input = NULL;
     char* videoPath = NULL;
 
-
     // 文字列の保存用にメモリを確保
     input = (char*)malloc(sizeof(char) * FILE_PATH_BUF);
     videoPath = (char*)malloc(sizeof(char) * FILE_PATH_BUF);
-
 
     // メモリの確保に失敗したら終了
     if( input == NULL) {
@@ -153,12 +151,10 @@ void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
     pixCtx->numFrames = numFrames;
 
     // pixCtxのメモリを確保する
-    (*pixCtx).pix = (RGB***) malloc((*pixCtx).numFrames * sizeof(RGB**));
+    (*pixCtx).pix = (RGB**) malloc((*pixCtx).numFrames * sizeof(RGB*));
     for(int i = 0; i < (*pixCtx).numFrames; i++) {
-        (*pixCtx).pix[i] = (RGB**) malloc(outHeight * sizeof(RGB*));
-        for(int j = 0; j < outHeight; j++) {
-            (*pixCtx).pix[i][j] = (RGB*) malloc(outWidth * sizeof(RGB));
-        }
+        (*pixCtx).pix[i] = (RGB*) malloc((outWidth*outHeight) * sizeof(RGB));
+
     }
     int frameIndex = 0;
 
@@ -209,12 +205,24 @@ void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
                         uint8_t b = rgbData[y * rgbLinesize + x * 3 + 2]; //  (x,y)座標の青成分
 
                         // 操作して得られたピクセルデータを構造体に格納する
-                        pixCtx->pix[frameIndex][y][x].r = (float)r/255;
-                        pixCtx->pix[frameIndex][y][x].g = (float)g/255;
-                        pixCtx->pix[frameIndex][y][x].b = (float)b/255;
+                        pixCtx->pix[frameIndex][(y*outWidth)+x].r = (float)r/255;
+                        pixCtx->pix[frameIndex][(y*outWidth)+x].g = (float)g/255;
+                        pixCtx->pix[frameIndex][(y*outWidth)+x].b = (float)b/255;
+                        if(frameIndex == 0){
+                            pixCtx->pix[frameIndex][(y*outWidth)+x].diff = '1';
+                        }else{
+                            if(pixCtx->pix[frameIndex][(y*outWidth)+x].r == pixCtx->pix[frameIndex-1][(y*outWidth)+x].r &&
+                               pixCtx->pix[frameIndex][(y*outWidth)+x].g == pixCtx->pix[frameIndex-1][(y*outWidth)+x].g &&
+                               pixCtx->pix[frameIndex][(y*outWidth)+x].b == pixCtx->pix[frameIndex-1][(y*outWidth)+x].b) {
+                                pixCtx->pix[frameIndex][(y*outWidth)+x].diff = '0';
+                            }else{
+                                pixCtx->pix[frameIndex][(y*outWidth)+x].diff = '1';
+                            }
+                        }
+                        pixCtx->pix[frameIndex][(y*outWidth)+x].y = outHeight - (y + 1);
+                        pixCtx->pix[frameIndex][(y*outWidth)+x].x = x;
                     }
                 }
-
                 frameIndex++;
             }
 
@@ -237,3 +245,13 @@ void VideoToBit(PixFrameData *pixCtx,char* videoPath,int width,int height) {
 void PushPixDraw(){
 
 }// end of PushPixDraw()
+
+int Compare(const void *rgb1, const void *rgb2){
+    if(((RGB *)rgb1)->r < ((RGB *)rgb2)->r){
+        return -1;
+    }else if(((RGB *)rgb1)->r > ((RGB *)rgb2)->r){
+        return 1;
+    }else {
+        return 0;
+    }
+}
